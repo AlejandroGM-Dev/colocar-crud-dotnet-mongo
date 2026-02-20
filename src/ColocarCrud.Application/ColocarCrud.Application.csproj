@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ColocarCrud.Infrastructure\ColocarCrud.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

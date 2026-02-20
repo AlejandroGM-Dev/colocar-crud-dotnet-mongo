@@ -1,1 +1,5 @@
-<Solution />
+<Solution>
+  <Project Path="src/ColocarCrud.Application/ColocarCrud.Application.csproj" />
+  <Project Path="src/ColocarCrud.Infrastructure/ColocarCrud.Infrastructure.csproj" />
+  <Project Path="src/ColocarCrud.Web/ColocarCrud.Web.csproj" />
+</Solution>
