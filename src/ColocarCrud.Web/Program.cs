@@ -1,26 +1,45 @@
+using ColocarCrud.Application.Users;
+using ColocarCrud.Infrastructure.Data;
+using ColocarCrud.Infrastructure.Repositories;
+using ColocarCrud.Infrastructure.Settings;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+// MVC (Controllers + Views)
+builder.Services.AddControllersWithViews();
+
+// Options Pattern para Mongo (desde appsettings.json)
+builder.Services.Configure<MongoSettings>(
+    builder.Configuration.GetSection("Mongo"));
+
+// Inyección de dependencias - Infrastructure
+builder.Services.AddSingleton<MongoContext>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// Inyección de dependencias - Application
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Pipeline HTTP
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 
+// Necesario para servir CSS/JS de wwwroot
+app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
+// Ruta por defecto (arranca en Users/Index)
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Users}/{action=Index}/{id?}");
 
 app.Run();
