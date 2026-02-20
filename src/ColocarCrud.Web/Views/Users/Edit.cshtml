@@ -1,0 +1,26 @@
+﻿@model ColocarCrud.Application.Users.UpdateUserDto
+
+<h2>Editar usuario</h2>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" />
+    </div>
+
+    <div>
+        <label>Nombre completo</label>
+        <input asp-for="FullName" />
+    </div>
+
+    <div style="color:red">
+        @Html.ValidationSummary()
+    </div>
+
+    <button type="submit">Guardar</button>
+    <a asp-action="Index">Volver</a>
+</form>

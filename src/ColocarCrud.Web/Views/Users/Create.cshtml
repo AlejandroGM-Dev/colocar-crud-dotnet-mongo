@@ -1,0 +1,24 @@
+﻿@model ColocarCrud.Application.Users.CreateUserDto
+
+<h2>Crear usuario</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" />
+    </div>
+
+    <div>
+        <label>Nombre completo</label>
+        <input asp-for="FullName" />
+    </div>
+
+    <div style="color:red">
+        @Html.ValidationSummary()
+    </div>
+
+    <button type="submit">Guardar</button>
+    <a asp-action="Index">Volver</a>
+</form>

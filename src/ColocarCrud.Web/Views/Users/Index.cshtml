@@ -1,0 +1,34 @@
+﻿@model List<ColocarCrud.Application.Users.UserDto>
+
+<h2>Usuarios</h2>
+<p><a asp-action="Create">Crear</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Creado (UTC)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.FullName</td>
+                <td>@u.Email</td>
+                <td>@u.CreatedAtUtc.ToString("u")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@u.Id">Editar</a>
+
+                    <form asp-action="Delete" method="post" style="display:inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@u.Id" />
+                        <button type="submit" onclick="return confirm('¿Eliminar usuario?')">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
