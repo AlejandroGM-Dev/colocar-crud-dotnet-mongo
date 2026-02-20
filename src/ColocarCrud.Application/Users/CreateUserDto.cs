@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace ColocarCrud.Application.Users
 {
-    public record CreateUserDto(string Email, string Fullname);
+    public record CreateUserDto(string Email, string FullName);
 }

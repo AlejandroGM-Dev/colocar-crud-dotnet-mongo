@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ColocarCrud</title>
+</head>
+<body>
+
+    <header style="padding:10px; border-bottom:1px solid #ccc;">
+        <a asp-controller="Users" asp-action="Index">Usuarios</a>
+    </header>
+
+    <main style="padding:20px;">
+        @RenderBody()
+    </main>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

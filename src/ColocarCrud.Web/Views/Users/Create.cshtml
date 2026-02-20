@@ -6,12 +6,12 @@
     @Html.AntiForgeryToken()
 
     <div>
-        <label>Email</label>
+        <label asp-for="Email"></label>
         <input asp-for="Email" />
     </div>
 
     <div>
-        <label>Nombre completo</label>
+        <label asp-for="FullName"></label>
         <input asp-for="FullName" />
     </div>
 
