@@ -1,0 +1,29 @@
+# Visual Studio / VS
+.vs/
+bin/
+obj/
+*.suo
+*.user
+*.rsuser
+*.userosscache
+*.sln.docstates
+
+# Env / secrets
+*.env
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
+
+# Logs
+*.log
+
+# Node (si aplica)
+node_modules/
+
+# VS Code / Rider
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
